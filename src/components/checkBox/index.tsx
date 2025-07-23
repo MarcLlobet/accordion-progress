@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import CheckSvg from '../../assets/check.svg'
+import styled from "styled-components";
+import CheckSvg from "../../assets/check.svg";
 
 const CheckBoxComponent = styled.div<{ $checked: boolean }>`
   display: flex;
@@ -8,25 +8,25 @@ const CheckBoxComponent = styled.div<{ $checked: boolean }>`
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
-  border-color: ${({ $checked }) => $checked ? '#02BC9C' : '#999'};
-  background-color: ${({ $checked }) => $checked ? '#02BC9C' : 'transparent'};
-  
+  border-color: ${({ $checked }) => ($checked ? "#02BC9C" : "#999")};
+  background-color: ${({ $checked }) => ($checked ? "#02BC9C" : "transparent")};
+
   & > img {
     margin: auto;
     width: 10px;
     height: 8px;
-    visibility: ${({ $checked }) => $checked ? 'visible' : 'hidden'};
+    visibility: ${({ $checked }) => ($checked ? "visible" : "hidden")};
   }
-`
+`;
 
 export type CheckBoxProps = {
-  checked?: boolean
-}
+  checked?: boolean;
+};
 
-export const CheckBox = ({checked = false }: CheckBoxProps) => {
+export const CheckBox = ({ checked = false }: CheckBoxProps) => {
   return (
     <CheckBoxComponent $checked={checked}>
       <img src={CheckSvg} alt="checked icon" />
     </CheckBoxComponent>
-  )
-}
+  );
+};

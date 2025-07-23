@@ -4,4 +4,6 @@ import type { State } from "./state";
 
 export const StateContext = createContext<State | null>(null);
 
-export const DispatchContext = createContext<ActionDispatch<AnyAction> | null>(null);
+export const DispatchContext = createContext<ActionDispatch<AnyAction> | null>(
+  null,
+);

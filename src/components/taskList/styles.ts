@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
-export const TaskItem = styled.div<{$checked: boolean}>`
+export const TaskItem = styled.div<{ $checked: boolean }>`
   margin: auto;
   width: 100%;
   display: flex;
@@ -8,7 +8,7 @@ export const TaskItem = styled.div<{$checked: boolean}>`
   gap: 16px;
   align-items: center;
   padding: 16px 0;
-`
+`;
 
 export const TaskWrapper = styled.div`
   display: flex;
@@ -16,4 +16,4 @@ export const TaskWrapper = styled.div`
   gap: 8px;
   padding: 16px 24px;
   padding-left: 32px;
-`
+`;

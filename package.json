@@ -8,7 +8,13 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "eslint:fix": "eslint . --fix",
+    "eslint:check": "eslint .",
+    "types:check": "tsc",
+    "fix": "pnpm run prettier:fix && pnpm run eslint:fix"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -27,8 +33,10 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "extend-expect": "link:@testing-library/jest-dom/extend-expect",
     "globals": "^16.3.0",
+    "husky": "^9.1.7",
     "jsdom": "^26.1.0",
-    "typescript": "~5.8.3",
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3",
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.4",
     "vitest": "^3.2.4"

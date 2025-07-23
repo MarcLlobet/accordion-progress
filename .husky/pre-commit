@@ -1,0 +1,4 @@
+pnpm run prettier:check
+pnpm run eslint:check
+pnpm run types:check
+pnpm run test
