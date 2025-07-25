@@ -29,16 +29,16 @@ const expectedParsedData = [
     tasks: [
       {
         checked: true,
-        description: "Task 1",
+        description: "Task 3",
         groupId: "1_Mock-Group-2",
-        id: "1_Mock-Group-2__0_Task-1",
+        id: "1_Mock-Group-2__0_Task-3",
         value: 23,
       },
       {
         checked: true,
-        description: "Task 2",
+        description: "Task 4",
         groupId: "1_Mock-Group-2",
-        id: "1_Mock-Group-2__1_Task-2",
+        id: "1_Mock-Group-2__1_Task-4",
         value: 6,
       },
     ],
@@ -76,11 +76,11 @@ describe("getParsedGroups", () => {
         tasks: [
           {
             groupId: "1_Mock-Group-2",
-            id: "1_Mock-Group-2__0_Task-1",
+            id: "1_Mock-Group-2__0_Task-3",
           },
           {
             groupId: "1_Mock-Group-2",
-            id: "1_Mock-Group-2__1_Task-2",
+            id: "1_Mock-Group-2__1_Task-4",
           },
         ],
       },

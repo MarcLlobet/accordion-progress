@@ -1,18 +1,16 @@
 import styled from "styled-components";
 
-export const VisibilityButtonElement = styled.button`
+export const VisibilityButtonElement = styled.span`
   color: #999;
   display: flex;
   flex-direction: row;
   gap: 8px;
-  appearance: none;
-  background: transparent;
-  border: 0;
   font-size: 16px;
   line-height: 24px;
+  align-items: center;
 `;
 
-export const VisibilityIcon = styled.div`
+export const VisibilityIcon = styled.span`
   width: 24px;
   height: 24px;
   display: flex;

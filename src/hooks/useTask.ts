@@ -6,16 +6,21 @@ import { useDispatch } from "./useDispatch";
 
 export const useTask = (task: Task) => {
   const { id } = task;
-  const { taskCheckedById } = useAppState();
+  const { taskCheckedById, disclosedGroup, tasksIdByGroupId } = useAppState();
   const dispatch = useDispatch();
 
   const handleTaskClick = useCallback(() => {
     dispatch(toggleTask(id));
   }, [id, dispatch]);
 
+  const isGroupDisclosed = disclosedGroup
+    ? tasksIdByGroupId[disclosedGroup].includes(id)
+    : false;
+
   return {
     ...task,
     checked: taskCheckedById[id],
     handleTaskClick,
+    isGroupDisclosed,
   };
 };

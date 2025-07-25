@@ -33,16 +33,16 @@ test("returns mockData", () => {
       name: "Mock Group 2",
       tasks: [
         {
-          id: "Mock Group 2__Task 1",
+          id: "Mock Group 2__Task 3",
           groupId: "Mock Group 2",
-          description: "Task 1",
+          description: "Task 3",
           value: 23,
           checked: true,
         },
         {
-          id: "Mock Group 2__Task 2",
+          id: "Mock Group 2__Task 4",
           groupId: "Mock Group 2",
-          description: "Task 2",
+          description: "Task 4",
           value: 6,
           checked: true,
         },

@@ -19,8 +19,8 @@ describe("getTaskPropById", () => {
     expect(tasksById).toEqual({
       "Mock Group 1__Task 1": "Mock Group 1__Task 1",
       "Mock Group 1__Task 2": "Mock Group 1__Task 2",
-      "Mock Group 2__Task 1": "Mock Group 2__Task 1",
-      "Mock Group 2__Task 2": "Mock Group 2__Task 2",
+      "Mock Group 2__Task 3": "Mock Group 2__Task 3",
+      "Mock Group 2__Task 4": "Mock Group 2__Task 4",
     });
   });
 });
@@ -38,19 +38,19 @@ const expectedInitialData = {
   taskValueById: {
     "Mock Group 1__Task 1": 10,
     "Mock Group 1__Task 2": 15,
-    "Mock Group 2__Task 1": 23,
-    "Mock Group 2__Task 2": 6,
+    "Mock Group 2__Task 3": 23,
+    "Mock Group 2__Task 4": 6,
   },
   taskCheckedById: {
     "Mock Group 1__Task 1": true,
     "Mock Group 1__Task 2": false,
-    "Mock Group 2__Task 1": true,
-    "Mock Group 2__Task 2": true,
+    "Mock Group 2__Task 3": true,
+    "Mock Group 2__Task 4": true,
   },
   groupsData: mockData,
   tasksIdByGroupId: {
     "Mock Group 1": ["Mock Group 1__Task 1", "Mock Group 1__Task 2"],
-    "Mock Group 2": ["Mock Group 2__Task 1", "Mock Group 2__Task 2"],
+    "Mock Group 2": ["Mock Group 2__Task 3", "Mock Group 2__Task 4"],
   },
 };
 

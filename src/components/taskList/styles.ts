@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TaskItem = styled.div<{ $checked: boolean }>`
+export const TaskItem = styled.button`
   margin: auto;
   width: 100%;
   display: flex;
@@ -8,6 +8,7 @@ export const TaskItem = styled.div<{ $checked: boolean }>`
   gap: 16px;
   align-items: center;
   padding: 16px 0;
+  text-align: left;
 `;
 
 export const TaskWrapper = styled.div`

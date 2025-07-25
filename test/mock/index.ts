@@ -20,12 +20,12 @@ export const mockRawData: RawGroup[] = [
     name: "Mock Group 2",
     tasks: [
       {
-        description: "Task 1",
+        description: "Task 3",
         value: 23,
         checked: true,
       },
       {
-        description: "Task 2",
+        description: "Task 4",
         value: 6,
         checked: true,
       },

@@ -26,12 +26,17 @@ const renderComponent = (state?: Partial<State>) => {
   };
   render(
     <StateProvider state={newState}>
-      <Accordion groups={mockData} />
+      <Accordion title="mock accordion" groups={mockData} />
     </StateProvider>,
   );
 };
 
 const spySetDisclosedGroup = vi.spyOn(actions, "setDisclosedGroup");
+
+test("renders title", () => {
+  renderComponent();
+  expect(screen.getByText("mock accordion")).toBeVisible();
+});
 
 test("renders multiple group names", () => {
   renderComponent();

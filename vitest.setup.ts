@@ -1,5 +1,6 @@
-import { cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
+import "html-validate/vitest";
+import { cleanup } from "@testing-library/react";
 import { afterEach, vi } from "vitest";
 import { mockRawData } from "./test/mock";
 

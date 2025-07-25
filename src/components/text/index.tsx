@@ -39,12 +39,7 @@ export const Text = ({
   const isTitle = !!as && (titleTags as ReadonlyArray<string>).includes(as);
 
   return (
-    <TextComponent
-      as={as}
-      $isTitle={isTitle}
-      role={isTitle ? "heading" : "paragraph"}
-      $size={size}
-    >
+    <TextComponent as={as} $isTitle={isTitle} $size={size}>
       <span>{children}</span>
     </TextComponent>
   );

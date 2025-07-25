@@ -43,8 +43,12 @@ export const DisclosureWidget = ({
   );
 
   return (
-    <BoxDetails $isExpanded={isDisclosed}>
-      <BoxSummary onClick={handleClick}>
+    <BoxDetails
+      $isExpanded={isDisclosed}
+      role="group"
+      aria-expanded={isDisclosed}
+    >
+      <BoxSummary onClick={handleClick} tabIndex={0}>
         <GroupTitle $isCompleted={areAllTasksCompleted}>
           <img
             width={16}

@@ -26,10 +26,23 @@ body {
   font-style: normal;
 }
 
+button {
+  appearance: none;
+  font-family: "Source Sans 3";
+  background: transparent;
+  color: inherit;
+  border: 0;
+}
+
+button:focus-visible {
+  outline-color: #02bc9c;
+}
+
 #root {
   width: 100%;
-  height: 100dvh;
+  min-height: 100dvh;
   display: flex;
+  padding: 16px;
 }
 
 * {

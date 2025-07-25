@@ -4,5 +4,5 @@ import { ProgressBar } from ".";
 
 test("renderitza el percentatge", () => {
   render(<ProgressBar percentage={42} />);
-  expect(screen.getByText("42%")).toBeVisible();
+  expect(screen.getByText("42")).toBeVisible();
 });

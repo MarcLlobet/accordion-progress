@@ -1,14 +1,20 @@
-import CheckSvg from "../../assets/check.svg";
-import { CheckBoxComponent } from "./styles";
+import { InputCheckBox } from "./styles";
 
 export type CheckBoxProps = {
   checked?: boolean;
+  labelId?: string | null;
 };
 
-export const CheckBox = ({ checked = false }: CheckBoxProps) => {
+export const CheckBox = ({
+  checked = false,
+  labelId = null,
+}: CheckBoxProps) => {
   return (
-    <CheckBoxComponent $checked={checked}>
-      <img src={CheckSvg} alt="checked icon" />
-    </CheckBoxComponent>
+    <InputCheckBox
+      role="presentation"
+      $checked={checked}
+      aria-checked={checked}
+      {...(!!labelId && { "aria-label": labelId })}
+    />
   );
 };

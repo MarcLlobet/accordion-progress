@@ -24,7 +24,7 @@ export const AccordionBody = ({ groups }: AccordionProps) => {
   );
 
   return (
-    <DisclosureWidgets>
+    <DisclosureWidgets aria-labelledby="accordion-title">
       {groups?.map((group) => (
         <DisclosureWidget
           key={group.id}

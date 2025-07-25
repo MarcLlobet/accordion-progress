@@ -3,10 +3,15 @@ import { Heading } from "../heading";
 import { AccordionBody } from "./accordionBody";
 import { AccordionWrapper } from "./styles";
 
-export const Accordion = ({ groups }: { groups: Group[] }) => {
+export type Accordion = {
+  title?: string;
+  groups: Group[];
+};
+
+export const Accordion = ({ title, groups }: Accordion) => {
   return (
     <AccordionWrapper>
-      <Heading />
+      <Heading title={title} />
       <AccordionBody groups={groups} />
     </AccordionWrapper>
   );
