@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch } from "./useDispatch";
 import { fetchGroups } from "../services";
-import { setInitialData, type InitialData } from "../providers/actions";
-import type { Group, Task } from "../providers/state";
+import { setInitialData, type InitialData } from "../state";
+import type { Group, Task } from "../types";
 
-const getTaskPropById = (groups: Group[], prop: keyof Task) =>
+export const getTaskPropById = (groups: Group[], prop: keyof Task) =>
   Object.values(groups).reduce(
     (prevGroup, group) => ({
       ...prevGroup,
@@ -19,7 +19,7 @@ const getTaskPropById = (groups: Group[], prop: keyof Task) =>
     {} as Record<string, unknown>,
   );
 
-const getTotalTasksValue = (groups: Group[]) =>
+export const getTotalTasksValue = (groups: Group[]) =>
   Object.values(groups).reduce((prevGroupValue, group) => {
     const tasksValue = group.tasks.reduce(
       (prevTaskValue, task) => prevTaskValue + task.value,
@@ -29,6 +29,37 @@ const getTotalTasksValue = (groups: Group[]) =>
     return prevGroupValue + tasksValue;
   }, 0);
 
+export const getTaskDataFromGroup = (groupsData: Group[]) => {
+  const totalTasksValue = getTotalTasksValue(groupsData);
+  const taskValueById = getTaskPropById(groupsData, "value") as Record<
+    string,
+    number
+  >;
+
+  const taskCheckedById = getTaskPropById(groupsData, "checked") as Record<
+    string,
+    boolean
+  >;
+
+  const tasksIdByGroupId = groupsData.reduce(
+    (prevGroup, group) => ({
+      ...prevGroup,
+      [group.id]: group.tasks.map((task) => task.id),
+    }),
+    {} as Record<string, string[]>,
+  );
+
+  const newData = {
+    totalTasksValue,
+    taskValueById,
+    taskCheckedById,
+    groupsData,
+    tasksIdByGroupId,
+  } as InitialData;
+
+  return newData;
+};
+
 export const useInitialData = () => {
   const dispatch = useDispatch();
 
@@ -36,35 +67,8 @@ export const useInitialData = () => {
     function onMount() {
       const getData = async () => {
         const groupsData = await fetchGroups();
-
-        const totalTasksValue = getTotalTasksValue(groupsData);
-        const taskValueById = getTaskPropById(groupsData, "value") as Record<
-          string,
-          number
-        >;
-
-        const taskCheckedById = getTaskPropById(
-          groupsData,
-          "checked",
-        ) as Record<string, boolean>;
-
-        const tasksIdByGroupId = groupsData.reduce(
-          (prevGroup, group) => ({
-            ...prevGroup,
-            [group.id]: group.tasks.map((task) => task.id),
-          }),
-          {} as Record<string, string[]>,
-        );
-
-        const newData = {
-          totalTasksValue,
-          taskValueById,
-          taskCheckedById,
-          groupsData,
-          tasksIdByGroupId,
-        } as InitialData;
-
-        dispatch(setInitialData(newData));
+        const initialData = getTaskDataFromGroup(groupsData);
+        dispatch(setInitialData(initialData));
       };
 
       getData();

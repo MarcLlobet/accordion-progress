@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import type { ActionDispatch, AnyAction } from "./actions";
-import type { State } from "./state";
+import type { State } from "../types";
 
 export const StateContext = createContext<State | null>(null);
 

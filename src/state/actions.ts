@@ -4,7 +4,7 @@ import {
   SET_INITIAL_DATA,
   TOGGLE_TASK,
 } from "./constants";
-import type { Group } from "./state";
+import type { Group } from "../types";
 
 export type Action<type, payload> = {
   type: type;

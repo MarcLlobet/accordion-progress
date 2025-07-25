@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { DispatchContext } from "../providers/contexts";
+import { DispatchContext } from "../state";
 
 export const useDispatch = () => {
   const context = useContext(DispatchContext);
   if (!context) {
-    throw new Error("useDispatchContext must be used within a StateProvider");
+    throw new Error("useDispatch must be used within a DispatchProvider");
   }
   return context;
 };

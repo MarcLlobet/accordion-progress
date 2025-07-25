@@ -1,34 +1,13 @@
-import { DisclosureWidget } from "../disclosureWidget";
-import { TaskList } from "../../containers/taskList";
-import type { Group } from "../../providers/state";
-import { DisclosureWidgets } from "./styles";
+import type { Group } from "../../types";
+import { Heading } from "../heading";
+import { AccordionBody } from "./accordionBody";
+import { AccordionWrapper } from "./styles";
 
-type AccordionGroup = Group & {
-  isDisclosed: boolean;
-};
-
-type AccordionProps = {
-  accordionGroups: AccordionGroup[];
-  handleDisclose: (id: string) => void;
-};
-
-export const Accordion = ({
-  accordionGroups,
-  handleDisclose,
-}: AccordionProps) => {
+export const Accordion = ({ groups }: { groups: Group[] }) => {
   return (
-    <DisclosureWidgets>
-      {accordionGroups?.map(({ id, isDisclosed, name, tasks }) => (
-        <DisclosureWidget
-          key={id}
-          id={id}
-          isDisclosed={isDisclosed}
-          summary={name}
-          onDisclose={handleDisclose}
-        >
-          <TaskList tasks={tasks} />
-        </DisclosureWidget>
-      ))}
-    </DisclosureWidgets>
+    <AccordionWrapper>
+      <Heading />
+      <AccordionBody groups={groups} />
+    </AccordionWrapper>
   );
 };

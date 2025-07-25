@@ -5,7 +5,7 @@ import {
   SET_INITIAL_DATA,
   TOGGLE_TASK,
 } from "./constants";
-import type { State } from "./state";
+import type { State } from "../types";
 
 export const reducer = (state: State, action: AnyAction) => {
   switch (action.type) {

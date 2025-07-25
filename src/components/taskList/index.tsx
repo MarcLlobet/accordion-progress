@@ -1,33 +1,16 @@
-import React from "react";
-import { CheckBox } from "../checkBox";
-import { Text } from "../text";
-import { TaskItem, TaskWrapper } from "./styles";
-import type { Task } from "../../providers/state";
+import type { Task } from "../../types";
+import { TaskWrapper } from "./styles";
+import { TaskItem } from "./taskItem";
 
-export type TaskProps = Task & {
-  checked: boolean;
+export type TaskProps = {
+  tasks: Task[];
 };
 
-export const TaskList = ({
-  tasks,
-  handleTaskClick,
-}: {
-  tasks: TaskProps[];
-  handleTaskClick: (taskId: string) => void;
-}) => {
+export const TaskList = ({ tasks }: TaskProps) => {
   return (
     <TaskWrapper>
-      {tasks.map(({ id, checked, description }) => (
-        <TaskItem
-          key={id}
-          $checked={checked}
-          onClick={() => handleTaskClick(id)}
-        >
-          <CheckBox checked={checked} />
-          <Text size="small" as="span">
-            {description}
-          </Text>
-        </TaskItem>
+      {tasks.map((task) => (
+        <TaskItem task={task} key={task.id} />
       ))}
     </TaskWrapper>
   );

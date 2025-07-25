@@ -1,31 +1,7 @@
-import styled from "styled-components";
 import ArrowUp from "../../assets/arrow-up.svg";
 import ArrowDown from "../../assets/arrow-down.svg";
 import { Text } from "../text";
-
-const VisibilityButtonElement = styled.button`
-  color: #999;
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  appearance: none;
-  background: transparent;
-  border: 0;
-  font-size: 16px;
-  line-height: 24px;
-`;
-
-const VisibilityIcon = styled.div`
-  width: 24px;
-  height: 24px;
-  display: flex;
-  padding: 6px;
-
-  & > img {
-    width: 100%;
-    height: 100%;
-  }
-`;
+import { VisibilityButtonElement, VisibilityIcon } from "./styles";
 
 export type VisibilityButtonProps = {
   isExpanded?: boolean;
