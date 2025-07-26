@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const InputCheckBox = styled.span<{ $checked: boolean }>`
   appearance: none;
   display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
   width: 16px;
   height: 16px;
   border-radius: 4px;
@@ -10,8 +13,6 @@ export const InputCheckBox = styled.span<{ $checked: boolean }>`
   border-style: solid;
   border-color: ${({ $checked }) => ($checked ? "#02BC9C" : "#999")};
   background-color: ${({ $checked }) => ($checked ? "#02BC9C" : "transparent")};
-  position: relative;
-  z-index: 1;
   transition:
     border-color 50ms ease-out,
     background-color 150ms ease-out;
@@ -19,8 +20,11 @@ export const InputCheckBox = styled.span<{ $checked: boolean }>`
   &:before {
     content: "";
     display: block;
-    position: relative;
-    z-index: 2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     background-image: url("/check.svg");
     background-size: contain;
     margin: auto;

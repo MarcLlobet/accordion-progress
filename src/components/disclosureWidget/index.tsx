@@ -1,7 +1,5 @@
 import { useCallback, useMemo, type ReactNode } from "react";
 import { VisibilityButton } from "../visibilityButton";
-import GroupDone from "../../assets/group-done.svg";
-import GroupOngoing from "../../assets/group-ongoing.svg";
 import { Text } from "../text";
 import { useAppState } from "../../hooks/useAppState";
 import type { Group } from "../../types";
@@ -10,6 +8,7 @@ import {
   BoxChildrenWrapper,
   BoxDetails,
   BoxSummary,
+  GroupIcon,
   GroupTitle,
 } from "./styles";
 
@@ -50,11 +49,9 @@ export const DisclosureWidget = ({
     >
       <BoxSummary onClick={handleClick} tabIndex={0}>
         <GroupTitle $isCompleted={areAllTasksCompleted}>
-          <img
-            width={16}
-            height={16}
-            src={areAllTasksCompleted ? GroupDone : GroupOngoing}
-            alt={`${areAllTasksCompleted ? "done" : "ongoing"} group icon`}
+          <GroupIcon
+            $isDone={areAllTasksCompleted}
+            isDone={areAllTasksCompleted}
           />
           <Text size="medium" as="span">
             {name}

@@ -30,5 +30,5 @@ export const BarWrapper = styled.div<{ $percentage: number }>`
   background-color: #02bc9c;
   border-radius: 16px;
   overflow: hidden;
-  transition: width 0.2s ease-out;
+  transition: width 0.4s ease-out;
 `;

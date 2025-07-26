@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { GroupIconSvg } from "./groupIconSvg";
 
 export const GroupTitle = styled.span<{ $isCompleted: boolean }>`
   display: flex;
@@ -62,4 +63,25 @@ export const BoxDetails = styled.div<{ $isExpanded: boolean }>`
   }
 `;
 
-//visibility: ${({ $isExpanded }) => ($isExpanded ? 'visible' : 'hidden')};
+export const GroupIcon = styled(GroupIconSvg)`
+  width: 16px;
+  height: 16px;
+  fill: ${({ $isDone }) => ($isDone ? "#02BC9C" : "#333")};
+  transition: fill 0.15s ease-out;
+  overflow: hidden;
+
+  & #tick {
+    transition:
+      transform 0.15s ease-out,
+      opacity 0.15s ease-out;
+    transform: translateX(${({ $isDone }) => ($isDone ? 0 : "-10px")});
+    opacity: ${({ $isDone }) => ($isDone ? 1 : 0)};
+  }
+  & #todo {
+    transition:
+      transform 0.15s ease-out,
+      opacity 0.15s ease-out;
+    transform: translateX(${({ $isDone }) => ($isDone ? "10px" : 0)});
+    opacity: ${({ $isDone }) => ($isDone ? 0 : 1)};
+  }
+`;

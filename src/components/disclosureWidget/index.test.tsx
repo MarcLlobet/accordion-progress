@@ -39,7 +39,7 @@ describe("ongoing group", () => {
   test("renders ongoing icon", async () => {
     renderComponent({ group: ongoingMockGroup });
 
-    expect(screen.getByAltText("ongoing group icon")).toBeVisible();
+    expect(await screen.findByText("folder of tasks todo")).toBeVisible();
   });
 });
 
@@ -47,7 +47,7 @@ describe("completed group", () => {
   test("renders completed icon", async () => {
     renderComponent({ group: completedMockGroup });
 
-    expect(screen.getByAltText("done group icon")).toBeVisible();
+    expect(await screen.findByText("folder of tasks done")).toBeVisible();
   });
 });
 

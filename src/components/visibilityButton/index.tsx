@@ -1,7 +1,5 @@
-import ArrowUp from "../../assets/arrow-up.svg";
-import ArrowDown from "../../assets/arrow-down.svg";
 import { Text } from "../text";
-import { VisibilityButtonElement, VisibilityIcon } from "./styles";
+import { ArrowIcon, VisibilityButtonElement, VisibilityIcon } from "./styles";
 
 export type VisibilityButtonProps = {
   isExpanded?: boolean;
@@ -16,10 +14,7 @@ export const VisibilityButton = ({
         {isExpanded ? "Show" : "Hide"}
       </Text>
       <VisibilityIcon>
-        <img
-          src={isExpanded ? ArrowUp : ArrowDown}
-          alt={`arrow ${isExpanded ? "up" : "down"}`}
-        />
+        <ArrowIcon $isExpanded={isExpanded} isExpanded={isExpanded} />
       </VisibilityIcon>
     </VisibilityButtonElement>
   );
