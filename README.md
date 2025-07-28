@@ -3,6 +3,10 @@
 A lightweight and accessible React component that displays progress within an accordion-style layout.  
 Useful for forms, onboarding flows or any UI that guides users step by step.
 
+**[Live demo](https://marcllobet.github.io/accordion-progress/)**
+
+<img width="840" height="584" alt="Captura de pantalla 2025-07-28 a les 13 38 10" src="https://github.com/user-attachments/assets/670100cc-b340-4a80-a248-1b334074a1fa" />
+
 ---
 
 ## 🚀 Getting Started
