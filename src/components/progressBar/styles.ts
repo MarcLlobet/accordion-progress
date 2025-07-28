@@ -14,7 +14,7 @@ export const AccomplishedBar = styled.div`
   padding: 2px 16px;
   line-height: 20px;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   display: flex;
   justify-content: flex-end;
 `;

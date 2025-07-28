@@ -7,6 +7,9 @@ settings:
 importers:
   .:
     dependencies:
+      "@fontsource-variable/source-sans-3":
+        specifier: ^5.2.8
+        version: 5.2.8
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -20,9 +23,6 @@ importers:
       "@eslint/js":
         specifier: ^9.30.1
         version: 9.31.0
-      "@fontsource/source-sans-3":
-        specifier: ^5.2.8
-        version: 5.2.8
       "@playwright/test":
         specifier: ^1.54.1
         version: 1.54.1
@@ -624,10 +624,10 @@ packages:
       }
     engines: { node: ^18.18.0 || ^20.9.0 || >=21.1.0 }
 
-  "@fontsource/source-sans-3@5.2.8":
+  "@fontsource-variable/source-sans-3@5.2.8":
     resolution:
       {
-        integrity: sha512-3NRlxRk9QHkLQbKbPn+sfcl+bPURLmgd5RKlK+SWd+YBepCEeAS0XUU8ro5ychlm4vYp8xUQOyFweLElpFw8QQ==,
+        integrity: sha512-iRQD4k06Wxm1668+AbPBoVo+CbgRsOz2E0/XibDJ7kAm9UhdhmNmsMTvs9KEl/mQxUj/487tr9w47NoM/TMhZQ==,
       }
 
   "@html-validate/stylish@4.3.0":
@@ -3296,7 +3296,7 @@ snapshots:
       "@eslint/core": 0.15.1
       levn: 0.4.1
 
-  "@fontsource/source-sans-3@5.2.8": {}
+  "@fontsource-variable/source-sans-3@5.2.8": {}
 
   "@html-validate/stylish@4.3.0":
     dependencies:

@@ -1,7 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-
-import "@fontsource/source-sans-3/400.css";
-import "@fontsource/source-sans-3/700.css";
+import SourceSans3VariableFont from "@fontsource-variable/source-sans-3/files/source-sans-3-latin-wght-normal.woff2?url";
 
 const lightModeColors = {
   darkGray: "#333",
@@ -74,8 +72,17 @@ const getCssColors = (cssMap: Record<string, string>) =>
   );
 
 export const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Source Sans 3 Variable';
+    font-style: normal;
+    font-display: auto;
+    font-weight: 200 900;
+    src: url(${SourceSans3VariableFont}) format('woff2-variations');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
   :root {
-    font-family: "Source Sans 3", system-ui, Helvetica, sans-serif;
+    font-family: 'Source Sans 3 Variable', system-ui, sans-serif;
+    font-variation-settings: "wdth" 400, "wght" 500 "wght" 700;
     line-height: 1.5;
     font-weight: 400;
     font-synthesis: none;
