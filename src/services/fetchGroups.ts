@@ -16,7 +16,7 @@ export const getParsedGroups = (data: RawGroup[]): Group[] =>
   });
 
 export const fetchGroups = async () => {
-  const groupsData: Group[] = await fetchData("/progress.json");
+  const groupsData: RawGroup[] = await fetchData("/progress.json");
   const parsedData = getParsedGroups(groupsData);
   return parsedData;
 };

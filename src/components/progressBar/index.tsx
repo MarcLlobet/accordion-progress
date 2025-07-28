@@ -11,10 +11,7 @@ export type ProgressBarProps = {
   percentage?: number;
 };
 
-export const ProgressBar = ({
-  children = null,
-  percentage = 0,
-}: ProgressBarProps) => {
+export const ProgressBar = ({ percentage = 0 }: ProgressBarProps) => {
   return (
     <ProgressBarComponent
       role="progressbar"
@@ -30,7 +27,6 @@ export const ProgressBar = ({
           </ProgressDetail>
         </AccomplishedBar>
       </BarWrapper>
-      {children}
     </ProgressBarComponent>
   );
 };

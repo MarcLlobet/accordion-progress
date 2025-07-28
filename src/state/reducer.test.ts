@@ -1,12 +1,13 @@
 import { describe, expect, test } from "vitest";
 import { reducer } from "./reducer";
 import {
+  SET_COLOR_MODE,
   SET_DISCLOSED_GROUP,
   SET_GROUP_DATA,
   SET_INITIAL_DATA,
   TOGGLE_TASK,
 } from "./constants";
-import type { State } from "../types";
+import type { ColorMode, State } from "../types";
 import type { AnyAction } from "./actions";
 
 const baseState: State = {
@@ -17,6 +18,7 @@ const baseState: State = {
   tasksIdByGroupId: {},
   groupsData: [],
   isLoading: true,
+  colorMode: "light",
 };
 
 describe("reducer", () => {
@@ -53,6 +55,12 @@ describe("reducer", () => {
     const next = reducer(baseState, action);
     expect(next.totalTasksValue).toBe(1);
     expect(next.isLoading).toBe(false);
+  });
+
+  test("SET_COLOR_MODE toggles color mode", () => {
+    const action = { type: SET_COLOR_MODE, payload: "dark" as ColorMode };
+    const next = reducer(baseState, action);
+    expect(next.colorMode).toBe("dark");
   });
 
   test("default returns state", () => {

@@ -1,8 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
 import { Page } from "./components";
-import { AccordionProgress } from "./accordionProgress";
+import { AccordionProgress, type AccordionProps } from "./accordionProgress";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -11,3 +10,5 @@ createRoot(document.getElementById("root")!).render(
     </Page>
   </StrictMode>,
 );
+
+export { AccordionProgress, type AccordionProps, Page };

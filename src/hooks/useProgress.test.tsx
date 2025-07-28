@@ -1,9 +1,9 @@
 import { renderHook } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
-import { StateProvider } from "../../state";
+import { StateProvider } from "../state";
 import type { ReactNode } from "react";
 import { useProgress } from "./useProgress";
-import type { State } from "../../types";
+import type { State } from "../types";
 
 const Wrapper =
   (state: Partial<State>) =>

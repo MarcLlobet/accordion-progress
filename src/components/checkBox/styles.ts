@@ -11,8 +11,9 @@ export const InputCheckBox = styled.span<{ $checked: boolean }>`
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
-  border-color: ${({ $checked }) => ($checked ? "#02BC9C" : "#999")};
-  background-color: ${({ $checked }) => ($checked ? "#02BC9C" : "transparent")};
+  border-color: var(--${({ $checked }) => ($checked ? "key" : "subtleText")});
+  background-color: ${({ $checked }) =>
+    $checked ? "var(--key)" : "transparent"};
   transition:
     border-color 50ms ease-out,
     background-color 150ms ease-out;

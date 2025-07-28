@@ -19,6 +19,8 @@ export type Group = {
   tasks: Task[];
 } & RawGroup;
 
+export type ColorMode = "light" | "dark";
+
 export type State = {
   disclosedGroup: string | null;
   totalTasksValue: number;
@@ -27,4 +29,5 @@ export type State = {
   tasksIdByGroupId: Record<string, string[]>;
   groupsData: Group[];
   isLoading: boolean;
+  colorMode: ColorMode;
 };

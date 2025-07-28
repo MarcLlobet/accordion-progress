@@ -8,4 +8,5 @@ export const initialState: State = {
   tasksIdByGroupId: {},
   groupsData: [],
   isLoading: true,
+  colorMode: "light",
 };

@@ -1,4 +1,4 @@
-import { useCallback, useMemo, type ReactNode } from "react";
+import React, { useCallback, useMemo, type ReactNode } from "react";
 import { VisibilityButton } from "../visibilityButton";
 import { Text } from "../text";
 import { useAppState } from "../../hooks/useAppState";
@@ -9,7 +9,7 @@ import {
   BoxDetails,
   BoxSummary,
   GroupIcon,
-  GroupTitle,
+  GroupTitle as GroupTitleStyle,
 } from "./styles";
 
 export type DisclosureWidgetProps = {
@@ -17,6 +17,31 @@ export type DisclosureWidgetProps = {
   children?: ReactNode;
   onDisclose?: (id: string) => void;
 };
+
+const GroupTitle = React.memo(
+  ({ groupName, groupId }: { groupName: string; groupId: string }) => {
+    const { tasksIdByGroupId, taskCheckedById } = useAppState();
+    const areAllTasksCompleted = useMemo(
+      () =>
+        tasksIdByGroupId[groupId]?.every((taskId) => taskCheckedById[taskId]),
+      [groupId, tasksIdByGroupId, taskCheckedById],
+    );
+
+    const isCompleted = useMemo(
+      () => areAllTasksCompleted,
+      [areAllTasksCompleted],
+    );
+
+    return (
+      <GroupTitleStyle $isCompleted={isCompleted}>
+        <GroupIcon $isDone={isCompleted} isDone={isCompleted} />
+        <Text size="medium" as="span">
+          {groupName}
+        </Text>
+      </GroupTitleStyle>
+    );
+  },
+);
 
 export const DisclosureWidget = ({
   group,
@@ -29,12 +54,7 @@ export const DisclosureWidget = ({
     onDisclose?.(id);
   }, [onDisclose, id]);
 
-  const { disclosedGroup, tasksIdByGroupId, taskCheckedById } = useAppState();
-
-  const areAllTasksCompleted = useMemo(
-    () => tasksIdByGroupId[id]?.every((taskId) => taskCheckedById[taskId]),
-    [id, tasksIdByGroupId, taskCheckedById],
-  );
+  const { disclosedGroup } = useAppState();
 
   const isDisclosed = useMemo(
     () => disclosedGroup === id,
@@ -42,24 +62,12 @@ export const DisclosureWidget = ({
   );
 
   return (
-    <BoxDetails
-      $isExpanded={isDisclosed}
-      role="group"
-      aria-expanded={isDisclosed}
-    >
+    <BoxDetails role="group" aria-expanded={isDisclosed}>
       <BoxSummary onClick={handleClick} tabIndex={0}>
-        <GroupTitle $isCompleted={areAllTasksCompleted}>
-          <GroupIcon
-            $isDone={areAllTasksCompleted}
-            isDone={areAllTasksCompleted}
-          />
-          <Text size="medium" as="span">
-            {name}
-          </Text>
-        </GroupTitle>
+        <GroupTitle groupName={name} groupId={id} />
         <VisibilityButton isExpanded={isDisclosed} />
       </BoxSummary>
-      <BoxChildren>
+      <BoxChildren $isExpanded={isDisclosed}>
         <BoxChildrenWrapper>{children}</BoxChildrenWrapper>
       </BoxChildren>
     </BoxDetails>

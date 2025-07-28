@@ -6,7 +6,7 @@ export const GroupTitle = styled.span<{ $isCompleted: boolean }>`
   flex-direction: row;
   align-items: center;
   gap: 16px;
-  color: ${({ $isCompleted }) => ($isCompleted ? "#02BC9C" : "#333333")};
+  color: var(--${({ $isCompleted }) => ($isCompleted ? "key" : "text")});
 `;
 
 export const BoxSummary = styled.button`
@@ -22,12 +22,15 @@ export const BoxSummary = styled.button`
   text-align: left;
 `;
 
-export const BoxChildren = styled.div`
+export const BoxChildren = styled.div<{ $isExpanded: boolean }>`
   display: grid;
   grid-template-rows: 0fr;
   transition:
     grid-template-rows 0.2s ease-out,
     opacity 0.15s ease-out;
+
+  grid-template-rows: ${({ $isExpanded }) => ($isExpanded ? 1 : 0)}fr;
+  opacity: ${({ $isExpanded }) => ($isExpanded ? 1 : 0)};
 `;
 
 export const BoxChildrenWrapper = styled.div`
@@ -38,8 +41,8 @@ export const BoxChildrenWrapper = styled.div`
   padding: 0;
 `;
 
-export const BoxDetails = styled.div<{ $isExpanded: boolean }>`
-  border: 1px solid #ccc;
+export const BoxDetails = styled.div`
+  border: 1px solid var(--border);
   display: flex;
   flex-direction: column;
 
@@ -56,32 +59,21 @@ export const BoxDetails = styled.div<{ $isExpanded: boolean }>`
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
   }
-
-  & > ${BoxChildren} {
-    grid-template-rows: ${({ $isExpanded }) => ($isExpanded ? 1 : 0)}fr;
-    opacity: ${({ $isExpanded }) => ($isExpanded ? 1 : 0)};
-  }
 `;
 
 export const GroupIcon = styled(GroupIconSvg)`
   width: 16px;
   height: 16px;
-  fill: ${({ $isDone }) => ($isDone ? "#02BC9C" : "#333")};
+  fill: var(--${({ $isDone }) => ($isDone ? "key" : "text")});
   transition: fill 0.15s ease-out;
   overflow: hidden;
 
   & #tick {
-    transition:
-      transform 0.15s ease-out,
-      opacity 0.15s ease-out;
-    transform: translateX(${({ $isDone }) => ($isDone ? 0 : "-10px")});
+    transition: opacity 0.15s ease-out;
     opacity: ${({ $isDone }) => ($isDone ? 1 : 0)};
   }
   & #todo {
-    transition:
-      transform 0.15s ease-out,
-      opacity 0.15s ease-out;
-    transform: translateX(${({ $isDone }) => ($isDone ? "10px" : 0)});
+    transition: opacity 0.15s ease-out;
     opacity: ${({ $isDone }) => ($isDone ? 0 : 1)};
   }
 `;

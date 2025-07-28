@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch } from "./useDispatch";
-import { fetchGroups } from "../services";
+import { fetchGroups, getParsedGroups } from "../services";
 import { setInitialData, type InitialData } from "../state";
-import type { Group, Task } from "../types";
+import type { Group, RawGroup, Task } from "../types";
 
 export const getTaskPropById = (groups: Group[], prop: keyof Task) =>
   Object.values(groups).reduce(
@@ -60,19 +60,28 @@ export const getTaskDataFromGroup = (groupsData: Group[]) => {
   return newData;
 };
 
-export const useInitialData = () => {
+export const useInitialData = (propGroupData?: RawGroup[]) => {
   const dispatch = useDispatch();
 
   useEffect(
     function onMount() {
+      if (propGroupData) {
+        const parsedPropData = getParsedGroups(propGroupData);
+        const propData = getTaskDataFromGroup(parsedPropData);
+        dispatch(setInitialData(propData));
+        return;
+      }
+
       const getData = async () => {
-        const groupsData = await fetchGroups();
-        const initialData = getTaskDataFromGroup(groupsData);
-        dispatch(setInitialData(initialData));
+        const fetchedGroupsData = await fetchGroups();
+        const fetchedInitialData = getTaskDataFromGroup(fetchedGroupsData);
+        return fetchedInitialData;
       };
 
-      getData();
+      getData().then((fetchedData) => {
+        dispatch(setInitialData(fetchedData));
+      });
     },
-    [dispatch],
+    [dispatch, propGroupData],
   );
 };

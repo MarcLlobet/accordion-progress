@@ -3,8 +3,9 @@ import {
   SET_DISCLOSED_GROUP,
   SET_INITIAL_DATA,
   TOGGLE_TASK,
+  SET_COLOR_MODE,
 } from "./constants";
-import type { Group } from "../types";
+import type { ColorMode, Group } from "../types";
 
 export type Action<type, payload> = {
   type: type;
@@ -47,11 +48,18 @@ export const setInitialData = (data: InitialData): SetInitialData => ({
   payload: data,
 });
 
+export type SetColorMode = Action<typeof SET_COLOR_MODE, ColorMode>;
+export const setColorMode = (colorMode: ColorMode): SetColorMode => ({
+  type: SET_COLOR_MODE,
+  payload: colorMode,
+});
+
 export type AnyAction =
   | SetDisclosedGroup
   | SetGroupData
   | SetInitialData
-  | ToggleTask;
+  | ToggleTask
+  | SetColorMode;
 
 export type ActionType = AnyAction["type"];
 export type ActionDispatch<T> = (action: T) => void;

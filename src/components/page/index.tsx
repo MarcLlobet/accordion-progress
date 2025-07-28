@@ -6,8 +6,8 @@ const PageComponent = styled.main`
   max-width: 820px;
   margin: auto;
   padding: 16px;
-  background: white;
-  border: 1px solid #ccc;
+  background: var(--innerBackground);
+  border: 1px solid var(--border);
   border-radius: 8px;
 `;
 

@@ -15,6 +15,7 @@ describe("initialState", () => {
       tasksIdByGroupId: expect.any(Object),
       groupsData: expect.any(Array),
       isLoading: expect.any(Boolean),
+      colorMode: expect.toBeOneOf(["light", "dark"]),
     });
   });
 });

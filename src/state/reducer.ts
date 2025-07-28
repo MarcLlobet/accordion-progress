@@ -4,6 +4,7 @@ import {
   SET_DISCLOSED_GROUP,
   SET_INITIAL_DATA,
   TOGGLE_TASK,
+  SET_COLOR_MODE,
 } from "./constants";
 import type { State } from "../types";
 
@@ -32,6 +33,11 @@ export const reducer = (state: State, action: AnyAction) => {
         ...state,
         ...action.payload,
         isLoading: false,
+      };
+    case SET_COLOR_MODE:
+      return {
+        ...state,
+        colorMode: action.payload,
       };
     default:
       return state;

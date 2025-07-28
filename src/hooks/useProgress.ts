@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useAppState } from "../../hooks/useAppState";
+import { useAppState } from "./useAppState";
 
 type GetTotalCheckedTasks = {
   taskCheckedById: Record<string, boolean>;
@@ -14,7 +14,8 @@ export const getTotalCheckedTasks = ({
     .filter(([, checkedTask]) => checkedTask)
     .reduce((prev, [taskId]) => prev + taskValueById[taskId], 0);
 
-const getPercentage = (part: number, total: number) => (part * 100) / total;
+const getPercentage = (part: number, total: number) =>
+  total ? (part * 100) / total : 0;
 
 type GetProgress = GetTotalCheckedTasks & {
   totalTasksValue: number;
@@ -32,7 +33,6 @@ export const getProgress = ({
 
   const percentage = getPercentage(valueCheckedTasks, totalTasksValue);
   const roundedPercentage = Math.round(percentage);
-
   return roundedPercentage;
 };
 

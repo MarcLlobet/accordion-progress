@@ -20,6 +20,9 @@ importers:
       "@eslint/js":
         specifier: ^9.30.1
         version: 9.31.0
+      "@fontsource/source-sans-3":
+        specifier: ^5.2.8
+        version: 5.2.8
       "@playwright/test":
         specifier: ^1.54.1
         version: 1.54.1
@@ -620,6 +623,12 @@ packages:
         integrity: sha512-Ul5l+lHEcw3L5+k8POx6r74mxEYKG5kOb6Xpy2gCRW6zweT6TEhAf8vhxGgjhqrd/VO/Dirhsb+1hNpD1ue9hw==,
       }
     engines: { node: ^18.18.0 || ^20.9.0 || >=21.1.0 }
+
+  "@fontsource/source-sans-3@5.2.8":
+    resolution:
+      {
+        integrity: sha512-3NRlxRk9QHkLQbKbPn+sfcl+bPURLmgd5RKlK+SWd+YBepCEeAS0XUU8ro5ychlm4vYp8xUQOyFweLElpFw8QQ==,
+      }
 
   "@html-validate/stylish@4.3.0":
     resolution:
@@ -3286,6 +3295,8 @@ snapshots:
     dependencies:
       "@eslint/core": 0.15.1
       levn: 0.4.1
+
+  "@fontsource/source-sans-3@5.2.8": {}
 
   "@html-validate/stylish@4.3.0":
     dependencies:
