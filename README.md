@@ -1,4 +1,4 @@
-# 🐾 Accordion progress
+# 🎵 Accordion progress
 
 A lightweight and accessible React component that displays progress within an accordion-style layout.  
 Useful for forms, onboarding flows or any UI that guides users step by step.
