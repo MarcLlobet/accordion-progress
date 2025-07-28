@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     outDir: "dist",
   },
-  base: "./",
+  base: "accordion-progress",
   plugins: [react()],
   test: {
     globals: true,

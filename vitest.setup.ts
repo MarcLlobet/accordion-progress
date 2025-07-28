@@ -6,7 +6,7 @@ import { mockRawData } from "./test/mock";
 
 export const actualFetch = globalThis.fetch;
 globalThis.fetch = vi.fn((urlProp: RequestInfo | URL): Promise<Response> => {
-  if (urlProp === "/progress.json") {
+  if (urlProp === "/accordion-progress/progress.json") {
     return Promise.resolve(
       new Response(JSON.stringify(mockRawData), {
         status: 200,

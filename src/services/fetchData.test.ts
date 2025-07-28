@@ -2,7 +2,7 @@ import { vi, describe, expect, it, type Mock } from "vitest";
 import { fetchData } from "./fetchData";
 import { mockRawData } from "../../test/mock";
 
-const progressEndpoint = "/progress.json";
+const progressEndpoint = "/accordion-progress/progress.json";
 
 describe("fetchData", () => {
   it("fetched passed endpoint", async () => {
